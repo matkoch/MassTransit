@@ -9,8 +9,8 @@ MassTransit supports Prometheus metric capture, which provides useful observabil
 ### Installation
 
 ```bash
-$ dotnet add package prometheus-net.AspNetCore
-$ dotnet add package MassTransit.Prometheus
+dotnet add package prometheus-net.AspNetCore
+dotnet add package MassTransit.Prometheus
 ```
 
 ### Configuration

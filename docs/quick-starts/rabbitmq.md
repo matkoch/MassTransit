@@ -30,13 +30,13 @@ This example requires the following:
 For this quick start we recommend running the preconfigured [Docker image maintained by the MassTransit team](https://github.com/MassTransit/docker-rabbitmq). It includes the delayed exchange plug-in, as well as the Management interface enabled.
 
 ```bash
-$ docker run -p 15672:15672 -p 5672:5672 masstransit/rabbitmq
+docker run -p 15672:15672 -p 5672:5672 masstransit/rabbitmq
 ```
 
 If you are running on an ARM platform
 
 ```bash
-$ docker run --platform linux/arm64 -p 15672:15672 -p 5672:5672 masstransit/rabbitmq
+docker run --platform linux/arm64 -p 15672:15672 -p 5672:5672 masstransit/rabbitmq
 ```
 
 Once its up and running you can [log into](http://localhost:15672) the broker using `guest`, `guest`. You can see message rates, routings and active consumers using this interface. 
@@ -47,7 +47,7 @@ Once its up and running you can [log into](http://localhost:15672) the broker us
 Add the _MassTransit.RabbitMQ_ package to the project.
 
 ```bash
-$ dotnet add package MassTransit.RabbitMQ
+dotnet add package MassTransit.RabbitMQ
 ```
 
 ## Edit Program.cs
@@ -83,7 +83,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 ## Run the project
 
 ```bash
-$ dotnet run
+dotnet run
 ```
 
 The output should have changed to show the message consumer generating the output (again, press Control+C to exit). Notice that the bus address now starts with `rabbitmq`.

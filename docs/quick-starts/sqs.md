@@ -83,7 +83,7 @@ This example requires the following:
 Add the _MassTransit.AmazonSQS_ package to the project.
 
 ```bash
-$ dotnet add package MassTransit.AmazonSQS
+dotnet add package MassTransit.AmazonSQS
 ```
 
 ## Edit Program.cs
@@ -116,7 +116,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 ### Run the project
 
 ```bash
-$ dotnet run
+dotnet run
 ```
 
 The output should have changed to show the message consumer generating the output (again, press Control+C to exit). Notice that the bus address now starts with `amazonsqs`.

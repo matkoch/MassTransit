@@ -33,9 +33,9 @@ dotnet new install MassTransit.Templates
 To create a service using MassTransit, create a worker via the Command Prompt.
 
 ```bash
-$ dotnet new mtworker -n GettingStarted
-$ cd GettingStarted
-$ dotnet new mtconsumer
+dotnet new mtworker -n GettingStarted
+cd GettingStarted
+dotnet new mtconsumer
 ```
 
 ### Overview of the code
@@ -79,7 +79,7 @@ Create a `Consumers` folder in the root of your project, and within that folder 
 ### Run the project
 
 ```bash
-$ dotnet run
+dotnet run
 ```
 
 The output should have changed to show the message consumer generating the output (again, press Control+C to exit).
