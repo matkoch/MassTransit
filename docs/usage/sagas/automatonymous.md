@@ -47,11 +47,11 @@ public class OrderStateMachine :
 
 An instance must store the current state, which can be one of three types:
 
-| Type | Description | 
-|:-----|:------------|
-|State | The interface `State` type. Can be difficult to serialize, typically only used for in-memory instances, but could be used if the repository storage engine supports mapping user types to a storage type. |
-|string| Easy, stores the state name. However, it takes a lot of space as the state name is repeated for every instance.|
-|int   | Small, fast, but requires that each possible state be specified, in order, to assign _int_ values to each state.|
+| Type   | Description                                                                                                                                                                                               | 
+|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| State  | The interface `State` type. Can be difficult to serialize, typically only used for in-memory instances, but could be used if the repository storage engine supports mapping user types to a storage type. |
+| string | Easy, stores the state name. However, it takes a lot of space as the state name is repeated for every instance.                                                                                           |
+| int    | Small, fast, but requires that each possible state be specified, in order, to assign _int_ values to each state.                                                                                          |
 
 The _CurrentState_ instance state property is automatically configured if it is a `State`. For `string` or `int` types, the `InstanceState` method must be used.
 

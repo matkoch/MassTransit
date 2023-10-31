@@ -18,7 +18,7 @@ public class TFilter<TMessage> :
 Scope filters are added using one of the following methods, which are specific to the filter context type.
 
 | Type                         | Usage                                                     |
-| ---------------------------- | --------------------------------------------------------- |
+|------------------------------|-----------------------------------------------------------|
 | `ConsumeContext<T>`          | `UseConsumeFilter(typeof(TFilter<>), context)`            |
 | `SendContext<T>`             | `UseSendFilter(typeof(TFilter<>), context)`               |
 | `PublishContext<T>`          | `UsePublishFilter(typeof(TFilter<>), context)`            |
@@ -178,7 +178,3 @@ The updated receive endpoint configuration using the InMemoryOutbox is shown bel
                     e.ConfigureConsumer<MyConsumer>(context);
                 });
 ```
-
-
-
-

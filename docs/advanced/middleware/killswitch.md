@@ -50,10 +50,10 @@ var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
 
 ### Options
 
-| Option                       | Description                                               |
-| ---------------------------- | --------------------------------------------------------- |
-| `TrackingPeriod`       | The time window for tracking exceptions |
-| `TripThreshold`        | The percentage of failed messages that triggers the kill switch. Should be 0-100, but seriously like 5-10. |
-| `ActivationThreshold`  | The number of messages that must be consumed before the kill switch activates. |
-| `RestartTimeout`       | The wait time before restarting the receive endpoint   |
-| `ExceptionFilter`      | By default, all exceptions are tracked. An exception filter can be configured to only track specific exceptions. |
+| Option                | Description                                                                                                      |
+|-----------------------|------------------------------------------------------------------------------------------------------------------|
+| `TrackingPeriod`      | The time window for tracking exceptions                                                                          |
+| `TripThreshold`       | The percentage of failed messages that triggers the kill switch. Should be 0-100, but seriously like 5-10.       |
+| `ActivationThreshold` | The number of messages that must be consumed before the kill switch activates.                                   |
+| `RestartTimeout`      | The wait time before restarting the receive endpoint                                                             |
+| `ExceptionFilter`     | By default, all exceptions are tracked. An exception filter can be configured to only track specific exceptions. |

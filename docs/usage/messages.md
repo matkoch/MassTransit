@@ -113,22 +113,22 @@ Example Events:
 
 MassTransit encapsulates every sent or published message in a message envelope (described by the [Envelope Wrapper](https://www.enterpriseintegrationpatterns.com/patterns/messaging/EnvelopeWrapper.html) pattern). The envelope adds a series of message headers, including:
 
-| Property | Type | Description |
-| :---------------- |:------:| :--------------------------------------- |
-| MessageId         |Auto   | Generated for each message using `NewId.NextGuid`.|
-| CorrelationId     |User   | Assigned by the application, or automatically by convention, and should uniquely identify the operation, event, etc.|
-| RequestId         |Request| Assigned by the request client, and automatically copied by the _Respond_ methods to correlate responses to the original request.|
-| InitiatorId       |Auto   | Assigned when publishing or sending from a consumer, saga, or activity to the value of the _CorrelationId_ on the consumed message.|
-| ConversationId    |Auto   | Assigned when the first message is sent or published and no consumed message is available, ensuring that a set of messages within the same conversation have the same identifier.|
-| SourceAddress     |Auto   | Where the message originated (may be a temporary address for messages published or sent from `IBus`).|
-| DestinationAddress|Auto   | Where the message was sent |
-| ResponseAddress   |Request| Where responses to the request should be sent. If not present, responses are _published_.|
-| FaultAddress      |User   | Where consumer faults should be sent. If not present, faults are _published_.|
-| ExpirationTime    |User   | When the message should expire, which may be used by the transport to remove the message if it isn't consumed by the expiration time.|
-| SentTime          |Auto   | When the message was sent, in UTC.|
-| MessageType       |Auto   | An array of message types, in a `MessageUrn` format, which can be deserialized.|
-| Host              |Auto   | The host information of the machine that sent or published the message.|
-| Headers           |User   | Additional headers, which can be added by the user, middleware, or diagnostic trace filters.|
+| Property           |  Type   | Description                                                                                                                                                                       |
+|:-------------------|:-------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| MessageId          |  Auto   | Generated for each message using `NewId.NextGuid`.                                                                                                                                |
+| CorrelationId      |  User   | Assigned by the application, or automatically by convention, and should uniquely identify the operation, event, etc.                                                              |
+| RequestId          | Request | Assigned by the request client, and automatically copied by the _Respond_ methods to correlate responses to the original request.                                                 |
+| InitiatorId        |  Auto   | Assigned when publishing or sending from a consumer, saga, or activity to the value of the _CorrelationId_ on the consumed message.                                               |
+| ConversationId     |  Auto   | Assigned when the first message is sent or published and no consumed message is available, ensuring that a set of messages within the same conversation have the same identifier. |
+| SourceAddress      |  Auto   | Where the message originated (may be a temporary address for messages published or sent from `IBus`).                                                                             |
+| DestinationAddress |  Auto   | Where the message was sent                                                                                                                                                        |
+| ResponseAddress    | Request | Where responses to the request should be sent. If not present, responses are _published_.                                                                                         |
+| FaultAddress       |  User   | Where consumer faults should be sent. If not present, faults are _published_.                                                                                                     |
+| ExpirationTime     |  User   | When the message should expire, which may be used by the transport to remove the message if it isn't consumed by the expiration time.                                             |
+| SentTime           |  Auto   | When the message was sent, in UTC.                                                                                                                                                |
+| MessageType        |  Auto   | An array of message types, in a `MessageUrn` format, which can be deserialized.                                                                                                   |
+| Host               |  Auto   | The host information of the machine that sent or published the message.                                                                                                           |
+| Headers            |  User   | Additional headers, which can be added by the user, middleware, or diagnostic trace filters.                                                                                      |
 
 Message headers can be read using the `ConsumeContext` interface and specified using the `SendContext` interface.
 

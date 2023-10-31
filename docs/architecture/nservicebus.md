@@ -21,19 +21,19 @@ MassTransit has limited message exchange support with NServiceBus, tested with t
 
 MassTransit delivers messages to consumers using `ConsumeContext<TMessage>`, which includes various header properties. From looking at the transport message format, headers are serialized outside of the message body. To support access to these headers in MassTransit, the transport headers are mapped as shown.
 
-| Property | Header Used | Out | Notes
-|:--------------|:-------------------------|:---:|:--------
-| ContentType | NServiceBus.ContentType | Y
-| ConversationId | NServiceBus.ConversationId | Y
-| CorrelationId | NServiceBus.CorrelationId | Y
-| MessageId | NServiceBus.MessageId | Y
-| SourceAddress | NServiceBus.OriginatingEndpoint | Y | formatted as `queue:name`
-| ResponseAddress | NServiceBus.ReplyToAddress | Y | formatted as `queue:name`
-| SentTime | NServiceBus.TimeSent | Y
-| Host.MachineName | NServiceBus.OriginatingMachine | Y
-| Host.MassTransitVersion | NServiceBus.Version | N | translated to NServiceBus x.x.x
-| Supported Message Types | NServiceBus.EnclosedMessageTypes | Y | converted from AssemblyQualifiedName, types must be resolvable via Type.GetType()
-|  | NServiceBus.MessageIntent | N | Ignored
+| Property                | Header Used                      | Out | Notes                                                                             |
+|:------------------------|:---------------------------------|:---:|:----------------------------------------------------------------------------------|
+| ContentType             | NServiceBus.ContentType          |  Y  |                                                                                   |
+| ConversationId          | NServiceBus.ConversationId       |  Y  |                                                                                   |
+| CorrelationId           | NServiceBus.CorrelationId        |  Y  |                                                                                   |
+| MessageId               | NServiceBus.MessageId            |  Y  |                                                                                   |
+| SourceAddress           | NServiceBus.OriginatingEndpoint  |  Y  | formatted as `queue:name`                                                         |
+| ResponseAddress         | NServiceBus.ReplyToAddress       |  Y  | formatted as `queue:name`                                                         |
+| SentTime                | NServiceBus.TimeSent             |  Y  |                                                                                   |
+| Host.MachineName        | NServiceBus.OriginatingMachine   |  Y  |                                                                                   |
+| Host.MassTransitVersion | NServiceBus.Version              |  N  | translated to NServiceBus x.x.x                                                   |
+| Supported Message Types | NServiceBus.EnclosedMessageTypes |  Y  | converted from AssemblyQualifiedName, types must be resolvable via Type.GetType() |
+|                         | NServiceBus.MessageIntent        |  N  | Ignored                                                                           |
 
 ### RabbitMQ
 
@@ -136,6 +136,3 @@ class TimeConsumer :
     }
 }
 ```
-
-
-

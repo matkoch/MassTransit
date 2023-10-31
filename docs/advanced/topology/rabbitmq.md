@@ -140,14 +140,13 @@ Query string parameters supported:
 
 ### RabbitMQ Query Parameters
 
-| Parameter        | Type  | Description                | Implies |
-| -------------    |-------|----------                  |---------|
-| temporary        | bool  | Temporary endpoint         | durable = false, autodelete = true
-| durable          | bool  | Save messages to disk      |
-| autodelete       | bool  | Delete when bus is stopped |
-| bind             | bool  | Bind exchange to queue     |
-| queue            | string| Bind to queue name         | bind = true
-
+| Parameter  | Type   | Description                | Implies                            |
+|------------|--------|----------------------------|------------------------------------|
+| temporary  | bool   | Temporary endpoint         | durable = false, autodelete = true |
+| durable    | bool   | Save messages to disk      |                                    |
+| autodelete | bool   | Delete when bus is stopped |                                    |
+| bind       | bool   | Bind exchange to queue     |                                    |
+| queue      | string | Bind to queue name         | bind = true                        |
 
 ## Broker Topology
 
@@ -244,4 +243,3 @@ The exchanges and queues for the send example are shown.
 ![rabbitmq-send-topology](/rabbitmq-send-topology.png)
 
 > Note that the broker topology can now be configured using the [topology](../topology/README.md) API.
-

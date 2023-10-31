@@ -18,10 +18,10 @@ Rider implementation is taking full responsibility of Checkpointing, there is no
 Checkpointer can be configured on topic bases through next properties:
 
 | Name                   | Description                                           | Default |
-|:-----------------------|:------------------------------------------------------|:-----|
-| CheckpointInterval     | Checkpoint frequency based on time                    | 1 min
-| CheckpointMessageCount | Checkpoint every X messages                           | 5000
-| MessageLimit           | Checkpointer buffer size without blocking consumption | 10000
+|:-----------------------|:------------------------------------------------------|:--------|
+| CheckpointInterval     | Checkpoint frequency based on time                    | 1 min   |
+| CheckpointMessageCount | Checkpoint every X messages                           | 5000    |
+| MessageLimit           | Checkpointer buffer size without blocking consumption | 10000   |
 
 > Please note, each topic partition has its own checkpointer and configuration is applied to partition and not to the entire topic.
 
@@ -31,14 +31,13 @@ During the graceful shutdown, Checkpointer will try to "checkpoint" all already 
 Riders are designed with performance in mind, handling each topic partition withing separate threadpool. As well, allowing to scale-up consumption within same partition by using PartitionKey, as long as keys are different, they will be processed concurrently and all this **without** sacrificing ordering.
 
 | Name                    | Description                                                                                                                                                                      | Default |
-|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
-| ConcurrentDeliveryLimit | Number of Messages delivered concurrently within same partition + PartitionKey. Increasing this value will **break ordering**, helpful for topics where ordering is not required | 1
-| ConcurrentMessageLimit  | Number of Messages processed concurrently witin different keys (preserving ordering). When keys are the same for entire partition `ConcurrentDeliveryLimit` will be used instead | 1
-| PrefetchCount           | Number of Messages to prefetch from kafka topic into memory                                                                                                                      | 1000
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------|
+| ConcurrentDeliveryLimit | Number of Messages delivered concurrently within same partition + PartitionKey. Increasing this value will **break ordering**, helpful for topics where ordering is not required | 1       |
+| ConcurrentMessageLimit  | Number of Messages processed concurrently witin different keys (preserving ordering). When keys are the same for entire partition `ConcurrentDeliveryLimit` will be used instead | 1       |
+| PrefetchCount           | Number of Messages to prefetch from kafka topic into memory                                                                                                                      | 1000    |
 
 ### Producers
 
 Producing messages to event hubs uses a producer. In the example below, a messages is produced to the event hub.
 
 <<< @/docs/code/riders/EventHubProducer.cs
-

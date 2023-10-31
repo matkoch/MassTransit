@@ -35,11 +35,11 @@ The configuration includes:
   - Consumer: `OrderSubmittedEventConsumer`
     - Message type: `OrderSystem.Events.OrderSubmitted`
 
-| Name | Description |
-|:-----|:------------|
-| order-events-listener | Queue for the receive endpoint
-| order-events-listener | An exchange, bound to the queue, used to _send_ messages
-| OrderSystem.Events:OrderSubmitted | An exchange, named by the message-type, bound to the _order-events-listener_ exchange, used to _publish_ messages
+| Name                              | Description                                                                                                       |
+|:----------------------------------|:------------------------------------------------------------------------------------------------------------------|
+| order-events-listener             | Queue for the receive endpoint                                                                                    |
+| order-events-listener             | An exchange, bound to the queue, used to _send_ messages                                                          |
+| OrderSystem.Events:OrderSubmitted | An exchange, named by the message-type, bound to the _order-events-listener_ exchange, used to _publish_ messages |
 
 When a message is sent, the endpoint address can be one of two values:
 
@@ -63,13 +63,13 @@ Durable exchanges and queues remain configured on the virtual host, so even if t
 
 MassTransit includes several host-level configuration options that control the behavior for the entire bus.
 
-|  Property                      | Type   | Description 
-|-------|------------------------|--------|---
-| PublisherConfirmation        | bool | MassTransit will wait until RabbitMQ confirms messages when publishing or sending messages (default: true)
-| Heartbeat                    | TimeSpan |The heartbeat interval used by the RabbitMQ client to keep the connection alive
-| RequestedChannelMax          | ushort | The maximum number of channels allowed on the connection
-| RequestedConnectionTimeout   | TimeSpan | The connection timeout
-| ContinuationTimeout          | TImeSpan | Sets the time the client will wait for the broker to response to RPC requests. Increase this value if you are experiencing timeouts from RabbitMQ due to a slow broker instance.
+| Property                   | Type     | Description                                                                                                                                                                      |
+|----------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PublisherConfirmation      | bool     | MassTransit will wait until RabbitMQ confirms messages when publishing or sending messages (default: true)                                                                       |
+| Heartbeat                  | TimeSpan | The heartbeat interval used by the RabbitMQ client to keep the connection alive                                                                                                  |
+| RequestedChannelMax        | ushort   | The maximum number of channels allowed on the connection                                                                                                                         |
+| RequestedConnectionTimeout | TimeSpan | The connection timeout                                                                                                                                                           |
+| ContinuationTimeout        | TImeSpan | Sets the time the client will wait for the broker to response to RPC requests. Increase this value if you are experiencing timeouts from RabbitMQ due to a slow broker instance. |
 
 #### UseCluster
 
@@ -81,23 +81,23 @@ MassTransit can connect to a cluster of RabbitMQ virtual hosts and treat them as
 
 MassTransit will briefly buffer messages before sending them to RabbitMQ, to increase message throughput. While use of the default values is recommended, the batch options can be configured.
 
-|  Property               | Type   | Default |Description 
-|-------|------------------------|-----|--------|---
-| Enabled        | bool | false | Enable or disable batch sends to RabbitMQ
-| MessageLimit        | int | 100 | Limit the number of messages per batch
-| SizeLimit        | int | 64K | A rough limit of the total message size
-| Timeout        | TimeSpan | 1ms | The time to wait for additional messages before sending
+| Property     | Type     | Default | Description                                             |
+|--------------|----------|---------|---------------------------------------------------------|
+| Enabled      | bool     | false   | Enable or disable batch sends to RabbitMQ               |
+| MessageLimit | int      | 100     | Limit the number of messages per batch                  |
+| SizeLimit    | int      | 64K     | A rough limit of the total message size                 |
+| Timeout      | TimeSpan | 1ms     | The time to wait for additional messages before sending |
 
 <<< @/docs/code/transports/ConfigureBatchConsoleListener.cs
 
 MassTransit includes several receive endpoint level configuration options that control receive endpoint behavior.
 
-| Property                | Type   | Description 
-|-------------------------|--------|------------------
-| PrefetchCount         | ushort | The number of unacknowledged messages that can be processed concurrently (default based on CPU count)
-| PurgeOnStartup        | bool   | Removes all messages from the queue when the bus is started (default: false)
-| AutoDelete         | bool | If true, the queue will be automatically deleted when the bus is stopped (default: false)
-| Durable        | bool   | If true, messages are persisted to disk before being acknowledged (default: true)
+| Property       | Type   | Description                                                                                           |
+|----------------|--------|-------------------------------------------------------------------------------------------------------|
+| PrefetchCount  | ushort | The number of unacknowledged messages that can be processed concurrently (default based on CPU count) |
+| PurgeOnStartup | bool   | Removes all messages from the queue when the bus is started (default: false)                          |
+| AutoDelete     | bool   | If true, the queue will be automatically deleted when the bus is stopped (default: false)             |
+| Durable        | bool   | If true, messages are persisted to disk before being acknowledged (default: true)                     |
 
 ## Additional Examples
 

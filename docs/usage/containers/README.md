@@ -87,11 +87,11 @@ _ConfigureEndpoints_ uses an `IEndpointNameFormatter` to generate endpoint names
 
 For the _SubmitOrderConsumer_, the endpoint names would be:
 
-| Formatter | Name
-|:---|:---
-| Default | `SubmitOrder`
-| Snake Case | `submit_order`
-| Kebab Case | `submit-order`
+| Formatter  | Name           |
+|:-----------|:---------------|
+| Default    | `SubmitOrder`  |
+| Snake Case | `submit_order` |
+| Kebab Case | `submit-order` |
 
 All of the included formatters trim the _Consumer_, _Saga_, or _Activity_ suffix from the end of the class name. If the consumer name is generic, the generic parameter type is used instead of the generic type.
 

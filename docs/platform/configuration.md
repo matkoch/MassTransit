@@ -9,56 +9,53 @@ Containers are configured using environment variables.
 
 Specify the transport used by the service.
 
-| Value | Transport
-|----|-----
-| RMQ | RabbitMQ (default)
-| ASB | Azure Service Bus
-| AMQ | ActiveMQ, including Amazon MQ
-| SQS | Amazon SQS
-
+| Value | Transport                     |
+|-------|-------------------------------|
+| RMQ   | RabbitMQ (default)            |
+| ASB   | Azure Service Bus             |
+| AMQ   | ActiveMQ, including Amazon MQ |
+| SQS   | Amazon SQS                    |
 
 #### RabbitMQ
 
-| Value | Description | Default
-|:----|:-----|:-----
-| MT_RMQ__HOST | The host address | `rabbitmq` or `localhost`
-| MT_RMQ__PORT | The host port | `5672` (or `5671` for SSL)
-| MT_RMQ__VHOST | Virtual Host name | `/`
-| MT_RMQ__USER | Sign in username | `guest`
-| MT_RMQ__PASS | Sign in password | `guest`
-| MT_RMQ__USESSL | Use SSL | `false`
-| MT_RMQ__SSL__SERVERNAME | Server name matching the CN | 
-| MT_RMQ__SSL__TRUST | Trust the certificate, ignoring errors | `false`
-| MT_RMQ__SSL__CERTPATH | Path to a client certificate | 
-| MT_RMQ__SSL__CERTPASSPHRASE | Passphrase for the certificate | 
-| MT_RMQ__SSL__CERTIDENTITY | Use the certificate to authenticate | `false`
-
+| Value                       | Description                            | Default                    |
+|:----------------------------|:---------------------------------------|:---------------------------|
+| MT_RMQ__HOST                | The host address                       | `rabbitmq` or `localhost`  |
+| MT_RMQ__PORT                | The host port                          | `5672` (or `5671` for SSL) |
+| MT_RMQ__VHOST               | Virtual Host name                      | `/`                        |
+| MT_RMQ__USER                | Sign in username                       | `guest`                    |
+| MT_RMQ__PASS                | Sign in password                       | `guest`                    |
+| MT_RMQ__USESSL              | Use SSL                                | `false`                    |
+| MT_RMQ__SSL__SERVERNAME     | Server name matching the CN            |                            |
+| MT_RMQ__SSL__TRUST          | Trust the certificate, ignoring errors | `false`                    |
+| MT_RMQ__SSL__CERTPATH       | Path to a client certificate           |                            |
+| MT_RMQ__SSL__CERTPASSPHRASE | Passphrase for the certificate         |                            |
+| MT_RMQ__SSL__CERTIDENTITY   | Use the certificate to authenticate    | `false`                    |
 
 #### Azure Service Bus
 
-| Value | Description | Default
-|:----|:-----|:-----
-| MT_ASB__CONNECTIONSTRING | The full connection string | 
+| Value                    | Description                | Default |
+|:-------------------------|:---------------------------|:--------|
+| MT_ASB__CONNECTIONSTRING | The full connection string |         |
 
 #### ActiveMQ (including Amazon MQ)
 
-| Value | Description | Default
-|:----|:-----|:-----
-| MT_AMQ__HOST | The host address | `activemq` or `localhost`
-| MT_AMQ__PORT | The host port | `61616`
-| MT_AMQ__USER | Sign in username | `admin`
-| MT_AMQ__PASS | Sign in password | `admin`
-| MT_AMQ__USESSL | Use SSL | `false`, `true` if _aws_ found in host name
+| Value          | Description      | Default                                     |
+|:---------------|:-----------------|:--------------------------------------------|
+| MT_AMQ__HOST   | The host address | `activemq` or `localhost`                   |
+| MT_AMQ__PORT   | The host port    | `61616`                                     |
+| MT_AMQ__USER   | Sign in username | `admin`                                     |
+| MT_AMQ__PASS   | Sign in password | `admin`                                     |
+| MT_AMQ__USESSL | Use SSL          | `false`, `true` if _aws_ found in host name |
 
 #### Amazon SQS
 
-| Value | Description | Default
-|:----|:-----|:-----
-| MT_SQS__REGION | The AWS region name | 
-| MT_SQS__SCOPE | The scope name | 
-| MT_SQS__ACCESSKEY | The AWS Access Key |
-| MT_SQS__SECRETKEY | The AWS Secret Key |
-
+| Value             | Description         | Default |
+|:------------------|:--------------------|:--------|
+| MT_SQS__REGION    | The AWS region name |         |
+| MT_SQS__SCOPE     | The scope name      |         |
+| MT_SQS__ACCESSKEY | The AWS Access Key  |         |
+| MT_SQS__SECRETKEY | The AWS Secret Key  |         |
 
 ### MT_SCHEDULER
 

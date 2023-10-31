@@ -102,8 +102,8 @@ Each transport has a specific set of supported short addresses.
 
 ##### Supported Address Schemes
 
-| Short Address | RabbitMQ           | Azure Service Bus  | ActiveMQ           | Amazon SQS         |
-| ------------- |:------------------:|:------------------:|:------------------:|:------------------:|
+| Short Address |      RabbitMQ      | Azure Service Bus  |      ActiveMQ      |     Amazon SQS     |
+|---------------|:------------------:|:------------------:|:------------------:|:------------------:|
 | queue:name    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | topic:name    |                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | exchange:name | :heavy_check_mark: |                    |                    |                    |
@@ -435,4 +435,3 @@ public async Task SendOrder(ISendEndpoint endpoint)
 [1]: http://www.enterpriseintegrationpatterns.com/patterns/messaging/PublishSubscribeChannel.html
 [2]: http://spring.io/blog/2011/04/01/routing-topologies-for-performance-and-scalability-with-rabbitmq/
 [3]: http://codebetter.com/drusellers/2011/05/08/brain-dump-conventional-routing-in-rabbitmq/
-

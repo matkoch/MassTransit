@@ -18,15 +18,15 @@ This configures the container so that there is a bus, using RabbitMQ, with a sin
 
 There are several interfaces added to the container using this configuration:
 
-| Interface | Lifestyle | Notes
-|:-----|:-----|:-----
-| `IBusControl` | Singleton | Used to start/stop the bus
-| `IBus` | Singleton | Publish/Send on this bus, starting a new conversation
-| `ISendEndpointProvider` | Scoped | Send messages from consumer dependencies, ASP.NET Controllers
-| `IPublishEndpoint` | Scoped | Publish messages from consumer dependencies, ASP.NET Controllers
-| `IClientFactory` | Singleton | Used to create request clients (singleton, or within scoped consumers)
-| `IRequestClient<SubmitOrder>` | Scoped | Used to send requests
-| `ConsumeContext` | Scoped | Available in any message scope, such as a consumer, saga, or activity
+| Interface                     | Lifestyle | Notes                                                                  |
+|:------------------------------|:----------|:-----------------------------------------------------------------------|
+| `IBusControl`                 | Singleton | Used to start/stop the bus                                             |
+| `IBus`                        | Singleton | Publish/Send on this bus, starting a new conversation                  |
+| `ISendEndpointProvider`       | Scoped    | Send messages from consumer dependencies, ASP.NET Controllers          |
+| `IPublishEndpoint`            | Scoped    | Publish messages from consumer dependencies, ASP.NET Controllers       |
+| `IClientFactory`              | Singleton | Used to create request clients (singleton, or within scoped consumers) |
+| `IRequestClient<SubmitOrder>` | Scoped    | Used to send requests                                                  |
+| `ConsumeContext`              | Scoped    | Available in any message scope, such as a consumer, saga, or activity  |
 
 When a consumer, a saga, or an activity is consuming a message the _ConsumeContext_ is available in the container scope. When the consumer is created using the container, the consumer and any dependencies are created within that scope. If a dependency includes _ISendEndpontProvider_, _IPublishEndpoint_, or even _ConsumeContext_ (should not be the first choice, but totally okay) on the constructor, all three of those interfaces result in the same reference – which is great because it ensures that messages sent and/or published by the consumer or its dependencies includes the proper correlation identifiers and monitoring activity headers.
 
@@ -46,16 +46,16 @@ Notable differences in the new method:
 
 The registered interfaces are slightly different for additional bus instances.
 
-| Interface | Lifestyle | Notes
-|:-----|:-----|:-----
-| `IBusControl` | N/A | Not registered, but automatically started/stopped by the hosted service
-| `IBus` | N/A | Not registered, the new bus interface is registered instead
-| `ISecondBus` | Singleton | Publish/Send on this bus, starting a new conversation
-| `ISendEndpointProvider` | Scoped | Send messages from consumer dependencies only
-| `IPublishEndpoint` | Scoped | Publish messages from consumer dependencies only
-| `IClientFactory` | N/A | Registered as an instance-specific client factory
-| `IRequestClient<SubmitOrder>` | Scoped | Created using the specific bus instance
-| `ConsumeContext` | Scoped | Available in any message scope, such as a consumer, saga, or activity
+| Interface                     | Lifestyle | Notes                                                                   |
+|:------------------------------|:----------|:------------------------------------------------------------------------|
+| `IBusControl`                 | N/A       | Not registered, but automatically started/stopped by the hosted service |
+| `IBus`                        | N/A       | Not registered, the new bus interface is registered instead             |
+| `ISecondBus`                  | Singleton | Publish/Send on this bus, starting a new conversation                   |
+| `ISendEndpointProvider`       | Scoped    | Send messages from consumer dependencies only                           |
+| `IPublishEndpoint`            | Scoped    | Publish messages from consumer dependencies only                        |
+| `IClientFactory`              | N/A       | Registered as an instance-specific client factory                       |
+| `IRequestClient<SubmitOrder>` | Scoped    | Created using the specific bus instance                                 |
+| `ConsumeContext`              | Scoped    | Available in any message scope, such as a consumer, saga, or activity   |
 
 For consumers or dependencies that need to send or publish messages to a different bus instance, a dependency on that specific bus interface (such as _IBus_, or _ISecondBus_) would be added.
 
@@ -72,7 +72,3 @@ To specify a class, as well as take advantage of the container to bring addition
 <<< @/docs/code/containers/MultiBusThreeContainer.cs
 
 This would add a third bus instance, the same as the second, but using the instance class specified. The class is resolved from the container and given `IBusControl`, which must be passed to the base class ensuring that it is properly configured.
-
-
-
-

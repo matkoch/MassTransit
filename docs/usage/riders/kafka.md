@@ -32,10 +32,10 @@ Rider implementation is taking full responsibility of Checkpointing, there is no
 Checkpointer can be configured on topic bases through next properties:
 
 | Name                   | Description                                           | Default |
-|:-----------------------|:------------------------------------------------------|:-----|
-| CheckpointInterval     | Checkpoint frequency based on time                    | 1 min
-| CheckpointMessageCount | Checkpoint every X messages                           | 5000
-| MessageLimit           | Checkpointer buffer size without blocking consumption | 10000
+|:-----------------------|:------------------------------------------------------|:--------|
+| CheckpointInterval     | Checkpoint frequency based on time                    | 1 min   |
+| CheckpointMessageCount | Checkpoint every X messages                           | 5000    |
+| MessageLimit           | Checkpointer buffer size without blocking consumption | 10000   |
 
 > Please note, each topic partition has it's own checkpointer and configuration is applied to partition and not to entire topic.
 
@@ -45,11 +45,11 @@ During graceful shutdown Checkpointer will try to "checkpoint" all already consu
 Riders are designed with performance in mind, handling each topic partition withing separate threadpool. As well, allowing to scale-up consumption within same partition by using Key, as long as keys are different they will be processed concurrently and all this **without** sacrificing ordering.
 
 | Name                    | Description                                                                                                                                                                      | Default |
-|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|
-| ConcurrentConsumerLimit | Number of Confluent Consumer instances withing same endpoint                                                                                                                     | 1
-| ConcurrentDeliveryLimit | Number of Messages delivered concurrently within same partition + key. Increasing this value will **break ordering**, helpful for topics where ordering is not required          | 1
-| ConcurrentMessageLimit  | Number of Messages processed concurrently witin different keys (preserving ordering). When keys are the same for entire partition `ConcurrentDeliveryLimit` will be used instead | 1
-| PrefetchCount           | Number of Messages to prefetch from kafka topic into memory                                                                                                                      | 1000
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------|
+| ConcurrentConsumerLimit | Number of Confluent Consumer instances withing same endpoint                                                                                                                     | 1       |
+| ConcurrentDeliveryLimit | Number of Messages delivered concurrently within same partition + key. Increasing this value will **break ordering**, helpful for topics where ordering is not required          | 1       |
+| ConcurrentMessageLimit  | Number of Messages processed concurrently witin different keys (preserving ordering). When keys are the same for entire partition `ConcurrentDeliveryLimit` will be used instead | 1       |
+| PrefetchCount           | Number of Messages to prefetch from kafka topic into memory                                                                                                                      | 1000    |
 
 ::: warning
 `ConcurrentConsumerLimit` is very powerful setting as Confluent consumer is reading one partition at a time, this will allow creating multiple consumers to read from separate partitions. But having higher number of Consumers than Number of Total Partitions would result of having **idle** consumers
