@@ -6,7 +6,7 @@ A video introducing the templates is available on [YouTube](https://youtu.be/nYK
 
 ## Installation
 
-```sh
+```bash
 dotnet new -i MassTransit.Templates
 ```
 

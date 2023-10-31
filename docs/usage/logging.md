@@ -17,7 +17,7 @@ out of the box.
 At MassTransit, we are big fans of [Serilog](https://serilog.net/) and use this default configuration as a starting point in
 most projects.
 
-```sh
+```bash
 dotnet add package Serilog.Extensions.Hosting
 dotnet add package Serilog
 dotnet add package Serilog.Sinks.Console
