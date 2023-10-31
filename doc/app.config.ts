@@ -11,7 +11,12 @@ export default defineAppConfig({
         url: 'https://masstransit-project.com',
         socials: {
             twitter: 'mtproj',
-            github: 'MassTransit/MassTransit'
+            discord: {
+                label: 'Discord',
+                icon: 'simple-icons:discord',
+                href: 'https://discord.gg/WdAQeGGr'
+            },
+            github: 'MassTransit/MassTransit',
         },
         aside: {
             level: 1,
