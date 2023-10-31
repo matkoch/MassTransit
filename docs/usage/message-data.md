@@ -68,7 +68,7 @@ await endpoint.Send<IndexDocumentContent>(new
 });
 ```
 
-If using a message class, or not using a message initializer, the data must be stored to the repository explicitly.
+If using a message class or not using a message initializer, the data must be stored to the repository explicitly.
 
 ```cs
 class IndexDocumentContentMessage :
@@ -128,7 +128,7 @@ By default, there is no default message data time-to-live. To specify a default 
 MessageDataDefaults.TimeToLive = TimeSpan.FromDays(2);
 ```
 
-This settings simply specifies the default value when calling the repository, it is up to the repository to apply any time-to-live values to the actual message data.
+This setting simply specifies the default value when calling the repository, it is up to the repository to apply any time-to-live values to the actual message data.
 
 If the `SendContext` has specified a time-to-live value, that value is applied to the message data automatically (when using message initializers). To add extra time, perhaps to account for system latency or differences in time, extra time can be added.
 

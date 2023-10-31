@@ -31,7 +31,7 @@ It is also often requested that a set of operations be managed as a *unit of wor
 
 ## Usage
 
-MassTransit includes transaction middleware to share a single committable transaction across any number consumers and any dependencies used by the those consumers. To use the middleware, it must be added to the bus or receive endpoint.
+MassTransit includes transaction middleware to share a single committable transaction across any number of consumers and any dependencies used by those consumers. To use the middleware, it must be added to the bus or receive endpoint.
 
 ```cs
 Bus.Factory.CreateUsingRabbitMq(cfg =>
@@ -186,13 +186,13 @@ public class Program
 
 ## Transactional Bus
 
-Here we are again, another option for holding onto the messages and releasing them as close to the database transaction Commit as possible. We made this alternative because using TransactionScope from the previous section, could [in certain cases](https://github.com/MassTransit/MassTransit/issues/2075) still cause a 2 phase commit escalation (not to mention that TransactionScope doesn't truely have async support, so we make [concessions by calling TaskUtil.Await](https://github.com/MassTransit/MassTransit/blob/develop/src/MassTransit/Transactions/TransactionalBusEnlistment.cs#L83)). So to offer an alternative to these drawbacks, MassTransit provides an Outbox Bus.
+Here we are again, another option for holding onto the messages and releasing them as close to the database transaction Commit as possible. We made this alternative because using TransactionScope from the previous section, could [in certain cases](https://github.com/MassTransit/MassTransit/issues/2075) still cause a 2 phase commit escalation (not to mention that TransactionScope doesn't truly have async support, so we make [concessions by calling TaskUtil.Await](https://github.com/MassTransit/MassTransit/blob/develop/src/MassTransit/Transactions/TransactionalBusEnlistment.cs#L83)). So to offer an alternative to these drawbacks, MassTransit provides an Outbox Bus.
 
 ::: warning  
 Never use the TransactionalBus or TransactionalEnlistmentBus when writing consumers. These tools are very specific and should be used only in the scenarios described.
 :::
 
-The examples will show it's usage in an ASP.NET MVC application, which is where we most commonly use Scoped lifetime for our DbContext and therefore we want the same for our TransactionalBus. You could possibly use it in some console applications, but ones WITHOUT a MT Consumer. Once you have consumers you will ALWAYS use `ConsumeContext` to interact with the bus, and never the `IBus`.
+The examples will show its usage in an ASP.NET MVC application, which is where we most commonly use Scoped lifetime for our `DbContext` and therefore we want the same for our TransactionalBus. You could possibly use it in some console applications, but ones WITHOUT an MT Consumer. Once you have consumers you will ALWAYS use `ConsumeContext` to interact with the bus, and never the `IBus`.
 
 First Register the outbox bus.
 
@@ -248,7 +248,7 @@ public class MyController : ControllerBase
 }
 ```
 
-One option to remove some of the boilerplate of opening a transaction each Action that writes to the DB is to make a Filter. You can then include all of the boilerplate code to begin the transaction, and release the outbox.
+One option to remove some of the boilerplate of opening a transaction each Action that writes to the DB is to make a Filter. You can then include all the boilerplate code to begin the transaction, and release the outbox.
 
 ```cs
 public class DbContextTransactionFilter : TypeFilterAttribute

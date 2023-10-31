@@ -8,11 +8,11 @@ Before any encryption occurs the message is serialized in to BSON using the same
 
 ## Initialization Vector (IV)
 
-The IV is rotated on every message to ensure that identical messages encrypted with same symmetric key do not end up with the same ciphertext. The IV itself is not a secret, it acts as a salt and is written to the first 16 bytes of the encrypted message so that it can be used to decrypt the message on the other side.
+The IV is rotated on every message to ensure that identical messages encrypted with the same symmetric key do not end up with the same ciphertext. The IV itself is not a secret, it acts as a salt and is written to the first 16 bytes of the encrypted message so that it can be used to decrypt the message on the other side.
 
 ## Symmetric Key
 
-MassTransit uses a default built in `ConstantSecureKeyProvider` allowing you to use a constant key for encrypting all your messages, this takes in a array of bytes to be used when encrypting the messages.
+MassTransit uses a default built in `ConstantSecureKeyProvider` allowing you to use a constant key for encrypting all your messages, this takes in an array of bytes to be used when encrypting the messages.
 
 However, if required you can implement your own `ISecureKeyProvider`, this is useful when you want to use a 3rd party key provider like AWS KMS or Azure Key Vault. Using a 3rd party like AWS KMS allows you to move the complexities of managing and rotating keys to someone else.
 
@@ -79,7 +79,7 @@ var bus = Bus.Factory.CreateUsingRabbitMq(sbc =>
 
 ### Unencrypted Message
 
-After you've configured your encrypted message serializer, MassTransit will still process standard unencrypted messages. If this is undesirable then you can clear all other message deserializers on bus configuration.
+After you've configured your encrypted message serializer, MassTransit will still process standard unencrypted messages. If this is undesirable, then you can clear all other message deserializers on bus configuration.
 
 ```csharp
 var bus = Bus.Factory.CreateUsingRabbitMq(sbc =>
@@ -89,4 +89,3 @@ var bus = Bus.Factory.CreateUsingRabbitMq(sbc =>
     sbc.UseEncryption(key)
 });
 ```
-

@@ -5,7 +5,7 @@ A Kill Switch is used to prevent failing consumers from moving all the messages 
 Typically, consumer exceptions are transient issues and suspending consumption until a later time when the transient issue may have been resolved.
 
 ::: tip
-A Kill Switch is the messaging analog of a Circuit Breaker, and operates in a similar manner. However, instead of inducing failure to reduce pressure on a backing service, the kill switch stops consuming messages instead thereby reducing pressure on backing services.
+A Kill Switch is the messaging analog of a Circuit Breaker, and operates in a similar manner. However, instead of inducing failure to reduce pressure on a backing service, the kill switch stops consuming messages instead, thereby reducing pressure on backing services.
 
 > Read Martin Fowler's description of the pattern [here](http://martinfowler.com/bliki/CircuitBreaker.html).
 :::
@@ -57,4 +57,3 @@ var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
 | `ActivationThreshold`  | The number of messages that must be consumed before the kill switch activates. |
 | `RestartTimeout`       | The wait time before restarting the receive endpoint   |
 | `ExceptionFilter`      | By default, all exceptions are tracked. An exception filter can be configured to only track specific exceptions. |
-

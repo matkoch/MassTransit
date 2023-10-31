@@ -7,7 +7,7 @@ configure and understand manner.
 
 The benefits of using MassTransit over the message transport, as opposed to using the raw transport APIs and building
 everything from scratch, are shown below. These are just a few, and some are more significant than others. The fact
-that the hosting of your consumers, handlers, sagas, etc. are all managed consistently with a well documented
+that the hosting of your consumers, handlers, sagas, etc. are all managed consistently with a well-documented
 production ready framework is the biggest advantage. You can also find numerous blog posts, podcasts, and articles
 written about MassTransit online.
 
@@ -18,7 +18,7 @@ Concurrent, asynchronous message consumers for maximum receive throughput and hi
 ### Connection management
 
 The network is unreliable. If the application is disconnected from the message broker, MassTransit takes care of
-reconnecting and making sure all of the exchanges, queues, and bindings are restored.
+reconnecting and making sure all the exchanges, queues, and bindings are restored.
 
 ### Exception, retries, and poison messages
 
@@ -55,7 +55,7 @@ the message consumption pipeline.
 
 ### Routing
 
-MassTransit provides a heavily production tested convention for using RabbitMQ exchanges to route published messages
+MassTransit provides a heavily production-tested convention for using RabbitMQ exchanges to route published messages
 to the subscribed consumers. The structure is CPU and memory friendly, which keeps RabbitMQ happy.
 
 ### Rx integration
@@ -67,7 +67,7 @@ Interested in or already using Reactive Extensions? MassTransit makes it easy to
 One of the first rules of unit testing is to avoid hitting infrastructure. And RabbitMQ is just that. MassTransit 
 includes a high-performance in-memory transport for testing every consumer using the same code that would be used
 in production. And the MassTransit.TestFramework NuGet package includes test harnesses
-that handle the setup and teardown of the bus so you can easily test your message consumers and sagas.
+that handle the setup and teardown of the bus, so you can easily test your message consumers and sagas.
 
 ### Sagas
 
@@ -87,6 +87,6 @@ Azure Service Bus scheduled enqueueing.
 
 ### Monitoring performance counters
 
-Keeping an eye on your services performance is critical, and having the right tools is a huge plus. MassTransit updates
+Keeping an eye on your service's performance is critical, and having the right tools is a huge plus. MassTransit updates
 a range of performance counters as messages are processed so operations can keep an eye on message flow and compare
 the throughput to that of RabbitMQ.

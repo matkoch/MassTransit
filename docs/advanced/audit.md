@@ -1,6 +1,6 @@
 # Message Audit
 
-Due to asynchronous nature of messaging, it is not always easy to find out the message flow.
+Due to the asynchronous nature of messaging, it is not always easy to find out the message flow.
 Step-into end-to-end debugging is almost impossible to use, especially if message processing
 is done in parallel and consumers perform atomic operations.
 

@@ -23,12 +23,12 @@ Checkpointer can be configured on topic bases through next properties:
 | CheckpointMessageCount | Checkpoint every X messages                           | 5000
 | MessageLimit           | Checkpointer buffer size without blocking consumption | 10000
 
-> Please note, each topic partition has it's own checkpointer and configuration is applied to partition and not to entire topic.
+> Please note, each topic partition has its own checkpointer and configuration is applied to partition and not to the entire topic.
 
-During graceful shutdown Checkpointer will try to "checkpoint" all already consumed messages. Force shutdown should be avoided to prevent multiple consumption for the same message.
+During the graceful shutdown, Checkpointer will try to "checkpoint" all already consumed messages. Force shutdown should be avoided to prevent multiple consumption for the same message.
 
 #### Scalability
-Riders are designed with performance in mind, handling each topic partition withing separate threadpool. As well, allowing to scale-up consumption within same partition by using PartitionKey, as long as keys are different they will be processed concurrently and all this **without** sacrificing ordering.
+Riders are designed with performance in mind, handling each topic partition withing separate threadpool. As well, allowing to scale-up consumption within same partition by using PartitionKey, as long as keys are different, they will be processed concurrently and all this **without** sacrificing ordering.
 
 | Name                    | Description                                                                                                                                                                      | Default |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----|

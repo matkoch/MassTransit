@@ -3,7 +3,7 @@
 The following recommendations should be considered _best practices_ for building applications using MassTransit, specifically with RabbitMQ.
 
 - Published messages are routed to a receive endpoint queue by message type, using exchanges and exchange bindings. A service's receive endpoints do not affect other services or their receive endpoints, as long as they do not share the same queue. 
-- Consumers and sagas should have their own receive endpoint, with a unique queue name
+- Consumers and sagas should have their own receive endpoint with a unique queue name
   - Each receive endpoint maps to one queue
   - A queue may contain more than one message type, the message type is used to deliver the message to the appropriate consumer configured on the receive endpoint.
   - If a received message is not handled by a consumer, the skipped message will be moved to a skipped queue, which is named with a \_skipped suffix.

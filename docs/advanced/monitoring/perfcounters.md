@@ -11,13 +11,13 @@ The user running your mass transit enabled application will need access to updat
 HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Perflib
 ```
 
-If MassTransit does not detect the performance counters it wishes to write to it will attempt to create them.
-If the user credentials do not have administrative access likely they will not have the ability to create the
+If MassTransit does not detect the performance counters it wishes to write to, it will attempt to create them.
+If the user credentials do not have administrative access, likely they will not have the ability to create the
 performance counters and errors will be logged.
 
 ### Windows installer
 
-When deploying your mass transit enabled application it is possible to have Windows Installer create your performance counters for you. Below is Xml used by Wix 3.0 to define the MassTransit performance counters.
+When deploying your MassTransit enabled application, it is possible to have Windows Installer create your performance counters for you. Below is Xml used by Wix 3.0 to define the MassTransit performance counters.
 
 ```xml
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"

@@ -27,7 +27,7 @@ corresponding Documentation.
 
 - Major Release means a generally available release of the Software that contains functional enhancements, extensions, and deprecations, denoted by incrementing
   the first number in the version (e.g., Software 8.0.0 to Software 9.0.0).
-- Minor Release means a general available release of the Software that introduces a limited amount of new features and functionality, denoted by incrementing
+- Minor Release means a general available release of the Software that introduces a limited number of new features and functionality, denoted by incrementing
   the
   second number in the version (e.g., Software 8.0.0 to Software 8.1.0).
 - Maintenance Release means a generally available release of the Software that typically provides maintenance fixes only, denoted by incrementing the third
@@ -44,7 +44,7 @@ For more details and to request a quote, contact [MassTransit Support][1].
 
 ## Consulting Services
 
-Consulting services are also available for architecture, development, and operational support. Services are provided on an hourly basis, and there are even an
+Consulting services are also available for architecture, development, and operational support. Services are provided on an hourly basis, and there are even 
 easy pay-as-you-go options that can be scheduled online (based upon availability).
 
 ### Architecture Review

@@ -58,7 +58,7 @@ Once the value has been created, the placeholder is replaced with a cached node 
 
 Green Cache uses two methods for managing memory usage, a capacity limit combined with an age limit.
 
-The capacity limit specifies how many values can be stored in the cache. The cache capacity is dynamic and doesn't represent a fixed limit how many values are in the cache at a point in time. Instead, capacity works in combination with the minimum age to make the cache useful for short-lived values, while keeping the size of the cache under control long term.
+The capacity limit specifies how many values can be stored in the cache. The cache capacity is dynamic and doesn't represent a fixed limit on how many values are in the cache at a point in time. Instead, capacity works in combination with the minimum age to make the cache useful for short-lived values, while keeping the size of the cache under control long term.
 
 The age limits define the minimum and maximum age of a value. The minimum age is a fixed lower limit specifying how long a value is cached, and a value will never be removed until it is of legal age. The maximum age is the longest an untouched value will remain in the cache before being removed.
 
@@ -79,5 +79,3 @@ The node tracker also have a maximum lifetime before it essentially _drops every
 ## Wrap up
 
 That's about it for now. For MassTransit developers, this doesn't change anything on the surface as it is completely internal. I just found it interesting enough to share, both to get feedback and to come to some mental conclusion after the time spent creating _Green Cache_.
-
-

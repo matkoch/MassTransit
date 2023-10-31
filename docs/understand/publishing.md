@@ -14,7 +14,7 @@ to queues, as well as other exchanges, making it easy to create a message routin
 and queues combined with the .NET type system to connect subscribers to publishers.
 
 MassTransit uses the message type to declare exchanges and exchange bindings that match the hierarchy of types implemented
-by the message type. Interfaces are declared as separate exchanges (using a fully-qualified type name that is compatible with
+by the message type. Interfaces are declared as separate exchanges (using a fully qualified type name that is compatible with
 the naming structure of exchanges) and bound to the published message type exchange. When a message is first published, the
 exchanges are declared once, and then used for the life of the channel.
 
@@ -94,7 +94,7 @@ flow. Dru [shared his experience][3] with this as well.
 
 ### Balancing the load
 
-Because RabbitMQ is a message broker, it supports multiple readers from the same queue. This makes it super easy to setup a
+Because RabbitMQ is a message broker, it supports multiple readers from the same queue. This makes it super easy to set up a
 load balancing scenario where the same service is running on multiple servers, each of which is connected to the same queue. As
 messages arrive on the queue, they are delivered to the first available consumer that can receive the message. To get good
 load balancing, it's important to set the `PrefetchCount` to a sensible value on the consumer so that messages are well distributed.

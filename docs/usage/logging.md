@@ -9,7 +9,7 @@ So, it will use whatever logging configuration is already in your container.
 ## Basic Configuration
 
 By integrating with `Microsoft.Extensions.Logging` the basic configuration is no configuration. :tada:
-When you run a project using the HostBuilder features of .Net you will get a basic logging experience right
+When you run a project using the HostBuilder features of .NET you will get a basic logging experience right
 out of the box.
 
 ## Serilog

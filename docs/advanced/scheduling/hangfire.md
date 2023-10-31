@@ -6,7 +6,7 @@
 MassTransit will create own Hangfire Server which will be only listening to its related jobs.
 :::
 
-By default MassTransit is using static Hangfire configuration
+By default, MassTransit is using static Hangfire configuration
 
 ```csharp
 //your hangfire configuration
@@ -20,7 +20,7 @@ var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
 
 ### Configuring the Hangfire address    
 
-The bus has an internal context that is used to make it so that consumers that need to schedule 
+The bus has an internal context used to make it so that consumers that need to schedule 
 messages do not have to be aware of the specific scheduler type being used, or the message scheduler 
 address. To configure the address, use the extension method shown below.
 
@@ -35,7 +35,7 @@ Once configured, messages may be scheduled.
 
 ### Advance configuration
 
-If you are using Hangfire integration with ASP.NET Core or non static configuration you can provide your configuration for MassTransit implementing `IHangfireComponentResolver`. For example using `IServiceProvider`:
+If you are using Hangfire integration with ASP.NET Core or non-static configuration, you can provide your configuration for MassTransit implementing `IHangfireComponentResolver`. For example using `IServiceProvider`:
 
 ```csharp
 public class ServiceProviderHangfireComponentResolver : 

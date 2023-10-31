@@ -35,4 +35,4 @@ If you have some back end services (console apps, or Mt Topshelf consumers), you
 > dotnet run
 ```
 
-An type in a message to broadcast to all connections. You will see the message in your browsers chat messages
+A type in a message to broadcast to all connections. You will see the message in your browsers chat messages

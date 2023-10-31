@@ -30,10 +30,10 @@ public class DiagnosticObserver : IObserver<DiagnosticListener>
 }
 ```
 
-That's it! Magic is done. Now you need to choose your Trace provider (for example: [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource#create-an-application-insights-resource-1), [OpenTracing](https://github.com/opentracing-contrib/csharp-netcore)) and configure to read metrics from your `DiagnosticSource`.
+That's it! Magic is done. Now you need to choose your Trace provider (for example, [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource#create-an-application-insights-resource-1), [OpenTracing](https://github.com/opentracing-contrib/csharp-netcore)) and configure to read metrics from your `DiagnosticSource`.
 
 The `OpenTracing.Contrib.NetCore` library subscribes to every diagnostic source under the hood it doesn't require any interaction from your side,
-however it neither propagates the remote context nor injects the current context to message headers, so the trace will be
+however, it neither propagates the remote context nor injects the current context to message headers, so the trace will be
 limited to local operations. Also, it won't use `TraceId` and `SpanId` from the `Activity` even when you set the activity default id format to `W3C`,
 those ids will be random and cannot be associated with `ActivityId`.
 

@@ -42,7 +42,7 @@ var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
 
 ### Redelivery with RabbitMQ
 
-It is also possible to use RabbitMQ Delayed Exchange to redeliver messages. You can even use it if the delayed exchange is not [configured](rabbitmq-delayed) as a default message scheduler.
+It is also possible to use RabbitMQ Delayed Exchange to re-deliver messages. You can even use it if the delayed exchange is not [configured](rabbitmq-delayed) as a default message scheduler.
 
 You can schedule a message to be redelivered via RabbitMQ delayed exchange from a consumer by using the `Defer` extension method like this:
 

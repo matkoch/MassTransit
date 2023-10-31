@@ -118,7 +118,7 @@ Sometimes you do not want to always retry, but instead only retry when some spec
 
 Both methods have two signatures:
 
-1. Generic version `Handle<T>` and `Ignore<T>` where `T` must be derivate of  `System.Exception`. With no argument, all exceptions of specified type will be either handled or ignored. You can also specify a function argument that will filter exceptions further based on other parameters.
+1. Generic version `Handle<T>` and `Ignore<T>` where `T` must be derivative of `System.Exception`. With no argument, all exceptions of specified type will be either handled or ignored. You can also specify a function argument that will filter exceptions further based on other parameters.
 
 1. Non-generic version that needs one or more exception types as parameters. No further filtering is possible if this version is used.
 
@@ -165,7 +165,7 @@ In the above example, if the consumer throws an `ArgumentNullException` it won't
 
 ## Redelivery
 
-Some errors take a while to resolve, say a remote service is down or a SQL server has crashed. In these situations, it's best to dust off and nuke the site from orbit - at a much later time obviously. Redelivery is a form of retry (some refer to it as _second-level retry_) where the message is removed from the queue and then redelivered to the queue at a future time.
+Some errors take a while to resolve, say a remote service is down or an SQL server has crashed. In these situations, it's best to dust off and nuke the site from orbit - at a much later time, obviously. Redelivery is a form of retry (some refer to it as _second-level retry_) where the message is removed from the queue and then redelivered to the queue at a future time.
 
 ::: tip NOTE
 In some frameworks, message redelivery is also referred to as second-level retry.
@@ -324,7 +324,7 @@ By default, MassTransit will move skipped messages to the *_skipped* queue. This
 
 > Skipped messages are messages that are read from the receive endpoint queue that do not have a matching handler, consumer, saga, etc. configured. For instance, receiving a _SubmitOrder_ message on a receive endpoint that only has a consumer for the _UpdateOrder_ message would cause that _SubmitOrder_ message to end up in the *_skipped* queue.
 
-To discard skipped messages so they are _not_ moved to the *_skipped* queue:
+To discard skipped messages, so they are _not_ moved to the *_skipped* queue:
 
 ```cs
 cfg.ReceiveEndpoint("input-queue", ec =>
@@ -346,6 +346,3 @@ cfg.ReceiveEndpoint("input-queue", ec =>
     });
 });
 ```
-
-
-

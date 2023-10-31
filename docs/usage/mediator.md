@@ -1,6 +1,6 @@
 # Mediator
 
-MassTransit includes a mediator implementation, with full support for consumers, handlers, and sagas (including saga state machines). MassTransit Mediator runs in-process and in-memory, no transport is required. For maximum performance, messages are passed by reference, instead than being serialized, and control flows directly from the _Publish_/_Send_ caller to the consumer. If a consumer throws an exception, the _Publish_/_Send_ method throws and the exception should be handled by the caller.
+MassTransit includes a mediator implementation, with full support for consumers, handlers, and sagas (including saga state machines). MassTransit Mediator runs in-process and in-memory, no transport is required. For maximum performance, messages are passed by reference, instead of being serialized, and control flows directly from the _Publish_/_Send_ caller to the consumer. If a consumer throws an exception, the _Publish_/_Send_ method throws and the exception should be handled by the caller.
 
 ::: tip Mediator
 Mediator is a [behavioral design pattern](https://en.wikipedia.org/wiki/Mediator_pattern) in which a _mediator_ encapsulates communication between objects to reduce coupling.
@@ -147,11 +147,10 @@ public class HttpContextScopeFilter :
 }
 ```
 
-Once the above have been added, the controller scope will be passed through the mediator send and consume filters so that the controller scope is used for the consumers.
+Once the above has been added, the controller scope will be passed through the mediator send and consume filters so that the controller scope is used for the consumers.
 
 ### Legacy Configuration
 
 When not using a container, Mediator can be created as shown below. Consumers and sagas are configured the same way they would on a receive endpoint. The example below configures the mediator with a single consumer.
 
 <<< @/docs/code/usage/UsageMediator.cs
-

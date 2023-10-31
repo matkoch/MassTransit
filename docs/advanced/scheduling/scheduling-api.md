@@ -16,7 +16,7 @@ To schedule messages from a bus, use _IMessageScheduler_ from the container (or 
 
 ### Recurring Messages
 
-You can also schedule a message to be send to you periodically. This functionality uses the Quartz.Net periodic 
+You can also schedule a message to be sent to you periodically. This functionality uses the Quartz.Net periodic 
 schedule feature and requires some knowledge of cron expressions.
 
 To request a recurring message, you need to use `ScheduleRecurringSend` extension method, which is available 

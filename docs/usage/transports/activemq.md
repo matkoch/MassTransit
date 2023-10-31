@@ -46,8 +46,8 @@ Amazon MQ uses ActiveMQ, so the same transport is used. Amazon MQ requires SSL, 
 
 ## Artemis
 
-Artemis also supports the openwire protocol. However some differences exists that cause the Masstransit ActiveMQ transport provider not to function.
-One of those causes is that Artemis works internally differentl with queues compared to ActiveMq. See [Artemis:Virtual Topics](https://activemq.apache.org/components/artemis/migration)
+Artemis also supports the openwire protocol. However, some differences exist that cause the Masstransit ActiveMQ transport provider not to function.
+One of those causes is that Artemis works internally different with queues compared to ActiveMq. See [Artemis:Virtual Topics](https://activemq.apache.org/components/artemis/migration)
 
 The easiest way to get the ActiveMQ transport provider working with a Artemis broker:
 
@@ -82,7 +82,7 @@ The responsibility of the formatter is to create the queuename for a given
 
 On the consume topology a TemporaryQueueNameFormatter can be configured. The responsibility of the formatter is to transform the 'system' generated name for a temporary queue.
 
-This could be used to e.g. add a prefix to the generated temporary queuenames.
+This could be used to e.g., add a prefix to the generated temporary queuenames.
 This helps to support namespaces in queuenames. 
 Artemis can use this to enforce security policies
 
